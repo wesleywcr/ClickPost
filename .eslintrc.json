@@ -7,11 +7,8 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "standard",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/standard",
-    "prettier/react"
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,10 +20,12 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "react/jsx-filename-extension": [ 1, { "extensions": [".ts", ".tsx"] }],
     "prettier/prettier": "error",
     "react/prop-types":"off",
     "react/react-in-jsx-scope":"off",
     "@typescript-eslint/explicit-module-boundary-types":"off"
+    
   },
   "settings": {
     "import/resolver": {
