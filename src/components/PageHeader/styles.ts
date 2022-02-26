@@ -1,5 +1,6 @@
 import styled from 'styled-components/native'
 import { BorderlessButton } from 'react-native-gesture-handler'
+import { RectButton } from 'react-native-gesture-handler'
 
 export const Container = styled.View`
   padding: 40px;
@@ -26,4 +27,13 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD_ARCHIVO};
   font-size: 28px;
   color: ${({ theme }) => theme.COLORS.TEXT};
+`
+export const Button = styled(RectButton)`
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  background-color: ${({ theme }) => theme.COLORS.BUTTON};
 `
