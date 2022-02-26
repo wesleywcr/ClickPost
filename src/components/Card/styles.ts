@@ -13,7 +13,7 @@ export const Container = styled.View`
 export const Profile = styled.View`
   justify-content: center;
   align-items: center;
-  padding: 26px;
+  padding: 15px;
 `
 export const Info = styled.View`
   margin-left: 18px;
@@ -36,7 +36,7 @@ export const Footer = styled.View`
 `
 export const ContainerButtons = styled.View`
   flex-direction: row;
-  margin-top: 18px;
+  margin-top: 14px;
 `
 export const Button = styled(RectButton)`
   width: 56px;
@@ -46,4 +46,16 @@ export const Button = styled(RectButton)`
   align-items: center;
   margin-right: 10px;
   background-color: ${({ theme }) => theme.COLORS.BUTTON};
+`
+export const DetailsButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+`
+export const DetailsButtonText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.SECOND};
+  font-size: 15px;
+  font-family: ${({ theme }) => theme.FONTS.BOLD_ARCHIVO};
+  margin-left: 10px;
 `
