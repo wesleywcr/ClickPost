@@ -20,9 +20,11 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.clicksoft.clickapp",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#38003a"
       }
     },
     "web": {
