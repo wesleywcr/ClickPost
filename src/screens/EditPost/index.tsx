@@ -1,15 +1,20 @@
-import { useNavigation } from '@react-navigation/native'
-import { useState } from 'react'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { useEffect, useState } from 'react'
 import Button from '../../components/Button'
+import { Post } from '../../components/Card'
 import { Footer } from '../../components/Card/styles'
 import { Input } from '../../components/Input'
 import PageHeader from '../../components/PageHeader'
 import { propsStack } from '../../routes/Models'
 import api from '../../services/api'
+
 import { Container, ContainerInput, Title } from './styles'
 
-export default function EditPost() {
+export default function EditPost(post: Post) {
   const { navigate } = useNavigation<propsStack>()
+
+  const route = useRoute()
+  const { PostId } = route.params
 
   function handleNavigateToFeed() {
     navigate('Feed')
@@ -19,13 +24,26 @@ export default function EditPost() {
   const [description, setDescription] = useState('')
   const [name, setName] = useState('')
 
+  useEffect(() => {
+    api.get(`posts/${PostId}`).then(response => {
+      const post = response.data
+      setTitle(post.title)
+      setDescription(post.body)
+      setName(post.actor)
+    })
+  }, [post.title, post.body, post.actor])
+
   async function EditPost() {
-    await api.put('posts', {
+    await api.put(`posts/${PostId}`, {
       title: title,
-      body: description
+      body: description,
+      actor: name,
+      id: PostId,
+      userId: PostId
     })
     setTitle('')
     setDescription('')
+    setName('')
     handleNavigateToFeed()
   }
   return (
