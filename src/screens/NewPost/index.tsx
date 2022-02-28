@@ -7,6 +7,7 @@ import PageHeader from '../../components/PageHeader'
 import { propsStack } from '../../routes/Models'
 import api from '../../services/api'
 import { Container, ContainerInput, Title } from './styles'
+import uuid from 'react-native-uuid'
 
 export default function NewPost() {
   const { navigate } = useNavigation<propsStack>()
@@ -21,11 +22,15 @@ export default function NewPost() {
 
   async function createPost() {
     await api.post('posts', {
+      userId: uuid.v4(),
+      id: uuid.v1(),
       title: title,
-      body: description
+      body: description,
+      actor: name
     })
     setTitle('')
     setDescription('')
+    setName('')
     handleNavigateToFeed()
   }
   return (
