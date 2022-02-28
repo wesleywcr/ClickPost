@@ -9,7 +9,8 @@ import {
   Profile,
   TitleContent,
   DetailsButton,
-  DetailsButtonText
+  DetailsButtonText,
+  ActorText
 } from './styles'
 import { Feather } from '@expo/vector-icons'
 import api from '../../services/api'
@@ -20,6 +21,7 @@ export interface Post {
   userId: number
   id: number
   title: string
+  actor: string
   body: string
 }
 interface PostProps {
@@ -33,10 +35,11 @@ export default function Card({ post }: PostProps) {
     navigate('Profile', { PostId: post.id })
   }
   function handleNavigateToEditPost() {
-    navigate('Edit')
+    navigate('Edit', { PostId: post.id })
   }
   async function deletePost() {
     await api.delete(`posts/${post.id}`)
+    navigate('Feed')
   }
 
   function confirmDeletion() {
@@ -57,6 +60,7 @@ export default function Card({ post }: PostProps) {
       <Profile>
         <Info>
           <TitleContent>{post.title}</TitleContent>
+          <ActorText>{post.actor}</ActorText>
         </Info>
         <BodyContent>{post.body}</BodyContent>
       </Profile>

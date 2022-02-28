@@ -23,6 +23,14 @@ export const TitleContent = styled.Text`
   font-size: 26px;
   font-family: ${({ theme }) => theme.FONTS.BOLD_ARCHIVO};
 `
+export const ActorText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.TEXT};
+  font-size: 10px;
+  font-family: ${({ theme }) => theme.FONTS.BOLD_ARCHIVO};
+  font-style: italic;
+  text-align: right;
+  margin-right: 18px;
+`
 export const BodyContent = styled.Text`
   margin: 25px;
   font-size: 14px;
