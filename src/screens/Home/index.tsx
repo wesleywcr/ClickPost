@@ -25,7 +25,7 @@ export default function Home() {
       <ButtonsContainer>
         <Button label="Entrar" onPress={handleNavigateToFeedPage} />
       </ButtonsContainer>
-      <FooterText>{`Mais de 5000 compras realizadas`}</FooterText>
+      <FooterText>{`Mais de 100 posts realizadas`}</FooterText>
     </Container>
   )
 }

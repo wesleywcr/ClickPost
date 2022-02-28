@@ -15,7 +15,7 @@ export const Title = styled.Text`
   color: #fff;
   line-height: 40px;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 45px;
   font-family: ${({ theme }) => theme.FONTS.BOLD_UBUNTU};
 `
 export const Description = styled.Text`
