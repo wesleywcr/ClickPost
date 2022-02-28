@@ -25,14 +25,12 @@ export interface Post {
 interface PostProps {
   post: Post
 }
-// interface ProfileProps {
-//   children: ReactNode
-// }
+
 export default function Card({ post }: PostProps) {
   const { navigate } = useNavigation<propsStack>()
 
   function handleNavigateToProfile() {
-    navigate('Profile')
+    navigate('Profile', { PostId: post.id })
   }
   function handleNavigateToEditPost() {
     navigate('Edit')
