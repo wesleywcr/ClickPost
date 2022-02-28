@@ -1,3 +1,4 @@
+import { useRoute } from '@react-navigation/native'
 import { useEffect, useState } from 'react'
 import InfoCard from '../../components/InfoCard'
 import PageHeader from '../../components/PageHeader'
@@ -22,9 +23,13 @@ export type User = {
   }
 }
 export default function Profile() {
-  const [user, setUser] = useState<User[]>([])
+  const route = useRoute()
+
+  const { PostId } = route.params
+
+  const [user, setUser] = useState<User>()
   useEffect(() => {
-    api.get(`users/1`).then(response => {
+    api.get(`users/${PostId}`).then(response => {
       setUser(response.data)
     })
   }, [])
@@ -33,9 +38,8 @@ export default function Profile() {
     <Container>
       <PageHeader displaybutton="none" title="Usuário" />
       <Title>Informações</Title>
-      {user.map(user => (
-        <InfoCard key={user.id} user={user} />
-      ))}
+
+      <InfoCard user={user} />
     </Container>
   )
 }
